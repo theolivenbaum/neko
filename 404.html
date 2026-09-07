@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <meta name="description" content="Sorry, we couldn’t find the page you’re looking for.">
+    <meta property="og:description" content="Sorry, we couldn’t find the page you’re looking for.">
+    <meta name="twitter:description" content="Sorry, we couldn’t find the page you’re looking for.">
+    <meta name="keywords" content="static site generator, csharp, dotnet, documentation, markdown">
+    <meta name="author" content="Neko Team">
+    <meta property="og:title" content="Page not found">
+    <meta name="twitter:title" content="Page not found">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/neko-logo.png">
+    <meta name="twitter:image" content="/assets/neko-logo.png">
+    <link rel="stylesheet" href="/assets/tailwind.css">
+    <script>window.nekoThemeColors = {"50":"#eef4ff","100":"#dce8ff","200":"#bcd4ff","300":"#8bb6ff","400":"#5b94ff","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e3a8a","900":"#162e6f","950":"#0a1535"}; window.nekoAccentColors = {"50":"#f5f3ff","100":"#ede9fe","200":"#ddd6fe","300":"#c4b5fd","400":"#a78bfa","500":"#8b5cf6","600":"#7c3aed","700":"#6d28d9","800":"#5b21b6","900":"#4c1d95","950":"#2e1065"};</script>
+    <style>
+      :root { --neko-bg: #ffffff; --neko-bg-elevated: #f8fafc; --neko-bg-muted: #f1f5f9; --neko-border: #e5e7eb; }
+      html.dark { --neko-bg: #050914; --neko-bg-elevated: #0b1226; --neko-bg-muted: #111a33; --neko-border: #1f2a44; }
+      /* Paint the root element itself, not just <body>. Otherwise the white
+         default html background shows through during a cross-document View
+         Transition cross-fade (and on overscroll) — a white flash in dark mode. */
+      html { background-color: var(--neko-bg); }
+      html.dark body { background-color: var(--neko-bg); }
+      html.dark .dark\:bg-gray-900 { background-color: var(--neko-bg) !important; }
+      html.dark .dark\:bg-gray-800 { background-color: var(--neko-bg-elevated) !important; }
+      html.dark .dark\:border-gray-800 { border-color: var(--neko-border) !important; }
+      html.dark .dark\:border-gray-700 { border-color: var(--neko-border) !important; }
+      .neko-text-gradient { background-image: linear-gradient(90deg, var(--neko-grad-from, #5b94ff) 0%, var(--neko-grad-to, #a78bfa) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      :root { --neko-grad-from: #5b94ff; --neko-grad-to: #a78bfa; }
+    </style>
+    <script>window.nekoConfig = { snippets: {"lineNumbers":[]}, branding: {"title":"Neko","label":null,"link":null,"linkTarget":null,"logo":"/assets/neko-logo.png","logoDark":null,"icon":null,"favicon":"/assets/favicon.ico","repository":"https://github.com/theolivenbaum/taildocs"} }; window.NEKO_ROUTE_PREFIX = "";</script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>:root { font-family: 'Inter', sans-serif; } @supports (font-variation-settings: normal) { :root { font-family: 'Inter var', sans-serif; } }</style>
+    <link rel="stylesheet" href="/assets/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="/assets/uicons-brands.css">
+    <link rel="stylesheet" href="/assets/emoji.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", function() { renderMathInElement(document.body); });</script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: false });
+        
+        // Brand the diagrams with the site's resolved palette (exposed as
+        // window.nekoThemeColors / nekoAccentColors). Mermaid's 'base' theme is
+        // the only one that fully honours themeVariables, so we feed it the
+        // primary + accent ramps and render a light and a dark variant.
+        const _nekoP = window.nekoThemeColors || {};
+        const _nekoA = window.nekoAccentColors || {};
+        const _P = (k, fb) => _nekoP[k] || fb;
+        const _A = (k, fb) => _nekoA[k] || fb;
+        const _nekoFont = (getComputedStyle(document.documentElement).fontFamily || 'Inter, sans-serif');
+        const nekoMermaidLight = {
+            theme: 'base',
+            themeVariables: {
+                fontFamily: _nekoFont,
+                primaryColor: _P('100', '#dce8ff'),
+                primaryBorderColor: _P('500', '#3b82f6'),
+                primaryTextColor: _P('950', '#0a1535'),
+                secondaryColor: _A('100', '#ede9fe'),
+                secondaryBorderColor: _A('500', '#8b5cf6'),
+                secondaryTextColor: _A('950', '#2e1065'),
+                tertiaryColor: _P('50', '#eef4ff'),
+                tertiaryBorderColor: _P('300', '#8bb6ff'),
+                lineColor: _P('500', '#3b82f6'),
+                textColor: '#1e293b',
+            }
+        };
+        const nekoMermaidDark = {
+            theme: 'base',
+            themeVariables: {
+                darkMode: true,
+                fontFamily: _nekoFont,
+                background: '#0b1226',
+                primaryColor: _P('800', '#1e3a8a'),
+                primaryBorderColor: _P('400', '#5b94ff'),
+                primaryTextColor: '#e8efff',
+                secondaryColor: _A('800', '#5b21b6'),
+                secondaryBorderColor: _A('400', '#a78bfa'),
+                secondaryTextColor: '#f3eeff',
+                tertiaryColor: '#111a33',
+                tertiaryBorderColor: _P('600', '#2563eb'),
+                lineColor: _P('300', '#8bb6ff'),
+                textColor: '#cdd7ee',
+            }
+        };
+        
+        async function renderMermaid() {
+            const elements = document.querySelectorAll('.mermaid');
+            if (!elements.length) return;
+            
+            for (const el of elements) {
+                if (el.getAttribute('data-processed')) continue;
+                el.setAttribute('data-processed', 'true');
+                
+                const source = el.textContent;
+                const idBase = 'mermaid-' + Math.random().toString(36).substr(2, 9);
+                const idLight = idBase + '-light';
+                const idDark = idBase + '-dark';
+                
+                // A diagram can declare its own theme via %%{init: {'theme': ...}}%%.
+                // When it does, render it verbatim so the author's choice fully wins —
+                // prepending our themeVariables would otherwise leak onto their theme.
+                const hasOwnTheme = /%%\{[^}]*\btheme\b/i.test(source);
+                // Render Light / Dark with the brand init directive (unless overridden).
+                const sourceLight = hasOwnTheme ? source : `%%{init: ${JSON.stringify(nekoMermaidLight)}}%%\n${source}`;
+                const sourceDark = hasOwnTheme ? source : `%%{init: ${JSON.stringify(nekoMermaidDark)}}%%\n${source}`;
+                
+                try {
+                    const rLight = await mermaid.render(idLight, sourceLight);
+                    const rDark = await mermaid.render(idDark, sourceDark);
+                    
+                    el.innerHTML = `
+                        <div class="dark:hidden w-full h-full flex items-center justify-center min-h-[inherit]">${rLight.svg}</div>
+                        <div class="hidden dark:block w-full h-full flex items-center justify-center min-h-[inherit]">${rDark.svg}</div>
+                        <div class="absolute bottom-4 right-4 flex bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-sm z-10 overflow-hidden">
+                            <button class="zoom-in-btn px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors" title="Zoom In"><i class="fi fi-rr-plus"></i></button>
+                            <button class="zoom-out-btn px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors border-l border-r border-gray-200 dark:border-gray-700" title="Zoom Out"><i class="fi fi-rr-minus"></i></button>
+                            <button class="zoom-reset-btn px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors" title="Reset Zoom"><i class="fi fi-rr-expand"></i></button>
+                        </div>
+                    `;
+                    
+                    const lightSvg = el.querySelector('.dark\\:hidden > svg');
+                    const darkSvg = el.querySelector('.hidden.dark\\:block > svg');
+                    lightSvg.classList.add("w-full");
+                    lightSvg.classList.add("h-full");
+                    lightSvg.classList.add("min-h-[inherit]");
+                    darkSvg.classList.add("w-full");
+                    darkSvg.classList.add("h-full");
+                    darkSvg.classList.add("min-h-[inherit]");
+                    
+                    if (rLight.bindFunctions && lightSvg) rLight.bindFunctions(lightSvg);
+                    if (rDark.bindFunctions && darkSvg) rDark.bindFunctions(darkSvg);
+                    
+                    const instances = [];
+                    // beforeWheel returns true so the wheel never zooms the diagram —
+                    // this lets page scroll pass through instead of being captured.
+                    const pzOptions = { bounds: true, boundsPadding: 0.1, beforeWheel: () => true };
+                    if (lightSvg) instances.push({svg: lightSvg, gpz: panzoom(lightSvg, pzOptions)});
+                    if (darkSvg) instances.push({svg: darkSvg, gpz: panzoom(darkSvg, pzOptions)});
+                    
+                    const zoomInBtn = el.querySelector('.zoom-in-btn');
+                    const zoomOutBtn = el.querySelector('.zoom-out-btn');
+                    const zoomResetBtn = el.querySelector('.zoom-reset-btn');
+                    
+                    if (zoomInBtn) {
+                        zoomInBtn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            instances.forEach(instance => {
+                                const rect = el.getBoundingClientRect();
+                                instance.gpz.smoothZoom(rect.left + rect.width / 2, rect.top + rect.height / 2, 1.2);
+                            });
+                        });
+                    }
+                    if (zoomOutBtn) {
+                        zoomOutBtn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            instances.forEach(instance => {
+                                const rect = el.getBoundingClientRect();
+                                instance.gpz.smoothZoom(rect.left + rect.width / 2, rect.top + rect.height / 2, 0.8);
+                            });
+                        });
+                    }
+                    if (zoomResetBtn) {
+                        zoomResetBtn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            instances.forEach(instance => {
+                                zoomToFit(instance.svg, instance.gpz);
+                            });
+                        });
+                        window.setTimeout(_ => zoomResetBtn.click(), 250);
+                    }
+                } catch (e) {
+                    console.error('Mermaid rendering failed:', e);
+                    el.innerHTML = `<div class="text-red-500">Error rendering diagram</div>`;
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', renderMermaid);
+async function zoomToFit(svg, gpz) {
+                const parent = svg.parentElement.parentElement;
+                const rectParent = parent.getBoundingClientRect();
+                const rectScene = svg.getBoundingClientRect();
+
+                const xys = gpz.getTransform();
+                const originWidth  = (rectScene.width + 20) / xys.scale;
+                const originHeight = (rectScene.height + 20) / xys.scale;
+                const zoomX = (rectParent.width - 40) / originWidth;
+                const zoomY = (rectParent.height - 40) / originHeight;
+
+                let targetScale = zoomX < zoomY ? zoomX : zoomY;
+
+                //when target scale is the same as currently, we reset back to 100%, so it acts as toggle.
+                if (Math.abs(targetScale - xys.scale) < 0.005) {
+                    //reset to 100%
+                    targetScale = 1;
+                }
+
+                const targetWidth = originWidth * xys.scale;
+                const targetHeight = originHeight * xys.scale;
+                const newX = targetWidth > rectParent.width ? -(targetWidth / 2) + rectParent.width / 2 : (rectParent.width / 2) - (targetWidth / 2);
+                const newY = targetHeight > rectParent.height ? -(targetHeight / 2) + rectParent.height / 2 : (rectParent.height / 2) - (targetHeight / 2);
+
+                //we need to cancel current running animations
+                gpz.pause();
+                gpz.resume();
+
+                const xDiff = Math.abs(newX - xys.x);
+                const yDiff = Math.abs(newX - xys.x);
+                if (xDiff > 5 || yDiff > 5) {
+                    //overything over 5px change will be animated
+                    gpz.moveBy(
+                        newX - xys.x,
+                        newY - xys.y,
+                        true
+                    );
+                    await new Promise(r => setTimeout(r, 250));
+                } else {
+                    gpz.moveBy(
+                        newX - xys.x,
+                        newY - xys.y,
+                        false
+                    );
+                }
+
+                //correct way to zoom with center of graph as origin when scaled
+                gpz.smoothZoomAbs(
+                    xys.x + originWidth * xys.scale / 2,
+                    xys.y + originHeight * xys.scale / 2,
+                    targetScale,
+                );
+            }
+    </script>
+    <script src="/assets/force-graph.min.js"></script>
+    <script src="/assets/minisearch.min.js"></script>
+    <script defer src="/assets/search.js"></script>
+    <script defer src="/assets/history.js"></script>
+    <script defer src="/assets/icons.js"></script>
+    <link id="highlight-theme" rel="stylesheet" href="/assets/highlight/tokyo-night-dark.min.css">
+    <script src="/assets/highlight/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+    <style>
+        /* Inline code (Tailwind Typography overrides) */
+        /* Remove the backtick quotes that prose adds via ::before/::after */
+        .prose :where(code):not(:where([class~="not-prose"] *))::before,
+        .prose :where(code):not(:where([class~="not-prose"] *))::after { content: none !important; }
+        /* Give inline code (not inside <pre>) a visible background and padding */
+        .prose :not(pre) > code { background-color: rgba(148, 163, 184, 0.18); color: inherit; padding: 0.15em 0.4em; border-radius: 0.25rem; font-weight: 500; font-size: 0.875em; }
+        .dark .prose :not(pre) > code { background-color: rgba(148, 163, 184, 0.22); }
+
+        /* Reset Tailwind Typography's <pre> defaults inside Neko code blocks. */
+        /* Without this the prose <pre> keeps its own dark background, margin, */
+        /* padding and rounding, so the code renders as a dark inset box floating */
+        /* with gaps inside the lighter wrapper card. Let the wrapper own the */
+        /* background, spacing and corners; the inner <code> keeps its padding. */
+        .prose .neko-code-block > pre { margin: 0 !important; padding: 0 !important; background: transparent !important; border: 0 !important; border-radius: 0 !important; }
+
+        /* Keep code text legible. Tailwind Typography colours <pre>/<code> */
+        /* with low-specificity :where() rules that can win over the highlight */
+        /* theme's .hljs and leave plain tokens in a light grey on the light card; */
+        /* blocks highlight.js doesn't recognise (unknown language, or a Tesserae */
+        /* block whose compile fell back to raw source) get no .hljs class at all */
+        /* and render entirely in that grey. Re-assert the base text colour per */
+        /* mode at higher specificity; highlighted .hljs-* spans keep their colours. */
+        .prose .neko-code-block pre code { color: #24292e; }
+        .dark .prose .neko-code-block pre code { color: #9aa5ce; }
+        /* Blocks highlight.js doesn't recognise never get .hljs (which sets */
+        /* display:block), so the <code>'s p-4 padding renders as inline padding */
+        /* — first line indented, the rest flush. Force block so padding is even. */
+        .prose .neko-code-block pre code { display: block; }
+
+        /* Alerts / notes: the content has to stay inside the box. The body */
+        /* column carries min-w-0 + break-words, so prose and inline code wrap */
+        /* instead of widening the note. What cannot wrap scrolls: a code */
+        /* block already scrolls (its <code> carries overflow-x-auto), and a */
+        /* table becomes a scroll container of its own — display:block, since */
+        /* overflow does not apply to a table box. */
+        .neko-alert-body table:not(.hljs-ln) { display: block; overflow-x: auto; max-width: 100%; }
+
+        /* Highlight.js Line Numbers CSS */
+        .prose table.hljs-ln tr { border: none !important; }
+        .prose table.hljs-ln td { padding: 0 !important; }
+        .prose table.hljs-ln td.hljs-ln-numbers { user-select: none; text-align: right; color: #ccc; border-right: 1px solid #ccc; vertical-align: top; padding-right: 5px !important; padding-left: 10px !important; }
+        .prose table.hljs-ln td.hljs-ln-code { padding-left: 10px !important; }
+        
+        /* Hide Line Numbers when disabled but table is present (for highlighting) */
+        .hide-line-numbers .hljs-ln-numbers { display: none !important; }
+        .hide-line-numbers .hljs-ln-code { padding-left: 5px !important; }
+        
+        /* Custom Highlight Style */
+        .line-highlight { background-color: rgba(255, 255, 0, 0.15); display: block; width: 100%; }
+        .dark .line-highlight { background-color: rgba(255, 255, 0, 0.15); }
+        
+        /* Fix Table layout for code blocks with line numbers */
+        .hljs-ln { width: 100%; border-collapse: collapse; }
+
+        /* Custom Scrollbars */
+        /* Sidebar */
+        #sidebar::-webkit-scrollbar { width: 6px; height: 6px; background-color: transparent; }
+        #sidebar::-webkit-scrollbar-thumb { background-color: transparent; border-radius: 3px; }
+        #sidebar:hover::-webkit-scrollbar-thumb { background-color: rgba(156, 163, 175, 0.5); }
+        .dark #sidebar:hover::-webkit-scrollbar-thumb { background-color: rgba(75, 85, 99, 0.5); }
+        /* A disclosure chevron rotates with its OWN <details>, at every nesting
+           level. Scoping to the direct child summary (rather than Tailwind's
+           group-open, which matches any ancestor .group[open]) keeps a nested
+           chevron from being forced down just because its parent section is open. */
+        #sidebar details[open] > summary .neko-chevron { transform: rotate(90deg); }
+        /* Sidebar chevrons only animate on user interaction, never on initial
+           load while saved/active section state is being restored. */
+        #sidebar.neko-no-anim .neko-chevron { transition: none !important; }
+
+        /* TOC */
+        #toc-sidebar::-webkit-scrollbar { display: none; }
+        #toc-sidebar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Main Content */
+        #main-scroll { scrollbar-gutter: stable; }
+        #main-scroll::-webkit-scrollbar { width: 8px; height: 8px; background-color: transparent; }
+        #main-scroll::-webkit-scrollbar-track { background-color: transparent; }
+        #main-scroll::-webkit-scrollbar-thumb { background-color: rgba(209, 213, 219, 0.5); border-radius: 4px; border: 2px solid transparent; background-clip: content-box; }
+        .dark #main-scroll::-webkit-scrollbar-thumb { background-color: rgba(75, 85, 99, 0.5); }
+        #main-scroll::-webkit-scrollbar-thumb:hover { background-color: rgba(156, 163, 175, 0.8); }
+        .dark #main-scroll::-webkit-scrollbar-thumb:hover { background-color: rgba(107, 114, 128, 0.8); }
+
+        /* Changelog sections: H1s become labelled section headers with an icon */
+        .neko-changelog-body > h1:first-child { margin-top: 0; }
+        .neko-changelog-body h1 { display: flex; align-items: center; gap: 0.625rem; font-size: 1.125rem; line-height: 1.75rem; font-weight: 600; margin: 1.75rem 0 0.25rem; padding: 0; border: 0; }
+        .neko-changelog-body h1 > i:first-child { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; flex: none; border-radius: 0.625rem; font-size: 1rem; background: color-mix(in srgb, var(--neko-grad-from) 14%, transparent); color: var(--neko-grad-from); }
+        /* Changelog entries: hairline separator between consecutive entries */
+        .neko-changelog-body .neko-change + .neko-change { border-top: 1px solid rgba(148, 163, 184, 0.18); }
+        .neko-changelog-body .neko-change-body > :first-child { margin-top: 0; }
+        .neko-changelog-body .neko-change-body > :last-child { margin-bottom: 0; }
+
+        /* API endpoint reference (```endpoint), styled after docs.microsoft.com / Swagger. */
+        .api-endpoint { margin: 1.5rem 0; border: 1px solid rgba(148, 163, 184, 0.28); border-radius: 0.75rem; overflow: hidden; }
+        .dark .api-endpoint { border-color: rgba(148, 163, 184, 0.2); }
+        .api-endpoint-header { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; padding: 0.6rem 1rem; background: rgba(148, 163, 184, 0.08); border-bottom: 1px solid rgba(148, 163, 184, 0.28); }
+        .dark .api-endpoint-header { background: rgba(148, 163, 184, 0.06); border-bottom-color: rgba(148, 163, 184, 0.2); }
+        .api-method { flex: none; display: inline-flex; align-items: center; justify-content: center; min-width: 4rem; padding: 0.2rem 0.6rem; border-radius: 0.375rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.4; }
+        .api-method[data-method="GET"]     { background: #dbeafe; color: #1e40af; }
+        .api-method[data-method="POST"]    { background: #dcfce7; color: #166534; }
+        .api-method[data-method="PUT"]     { background: #fef3c7; color: #92400e; }
+        .api-method[data-method="PATCH"]   { background: #ccfbf1; color: #115e59; }
+        .api-method[data-method="DELETE"]  { background: #fee2e2; color: #991b1b; }
+        .api-method[data-method="HEAD"], .api-method[data-method="OPTIONS"] { background: #e5e7eb; color: #374151; }
+        .dark .api-method[data-method="GET"]    { background: rgba(30, 58, 138, 0.4); color: #93c5fd; }
+        .dark .api-method[data-method="POST"]   { background: rgba(20, 83, 45, 0.4); color: #86efac; }
+        .dark .api-method[data-method="PUT"]    { background: rgba(120, 53, 15, 0.4); color: #fcd34d; }
+        .dark .api-method[data-method="PATCH"]  { background: rgba(19, 78, 74, 0.4); color: #5eead4; }
+        .dark .api-method[data-method="DELETE"] { background: rgba(127, 29, 29, 0.4); color: #fca5a5; }
+        .dark .api-method[data-method="HEAD"], .dark .api-method[data-method="OPTIONS"] { background: rgba(55, 65, 81, 0.6); color: #d1d5db; }
+        .api-path { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.95rem; font-weight: 600; color: #111827; word-break: break-all; }
+        .dark .api-path { color: #f3f4f6; }
+        .api-anchor { color: #9ca3af; text-decoration: none; font-size: 0.8rem; }
+        .api-anchor:hover { color: #4b5563; }
+        .dark .api-anchor:hover { color: #d1d5db; }
+        .api-endpoint-body { padding: 0.75rem 1rem; }
+        .api-summary { margin: 0; color: #374151; line-height: 1.6; }
+        .dark .api-summary { color: #d1d5db; }
+        .api-details { display: grid; grid-template-columns: max-content 1fr; column-gap: 1rem; row-gap: 0.35rem; margin: 0.75rem 0 0; font-size: 0.9rem; }
+        .api-details dt { font-weight: 600; color: #6b7280; }
+        .dark .api-details dt { color: #9ca3af; }
+        .api-details dd { margin: 0; color: #1f2937; }
+        .dark .api-details dd { color: #e5e7eb; }
+        /* Inline code inside an endpoint (paths excepted) gets a subtle pill. */
+        .api-endpoint :not(.api-path) > code, .api-endpoint code:not(.api-path) { background: rgba(148, 163, 184, 0.18); padding: 0.12em 0.4em; border-radius: 0.25rem; font-size: 0.85em; }
+
+        /* API class/type reference (Microsoft Learn-style). Opt-in via .api-* helper
+           classes authored as containers (:::api-definition, :::api-members, …). */
+        /* Auto-widen the content column on reference pages that use these helpers. */
+        #main-scroll:has(.api-definition, .api-members, .csharp-type) > .max-w-4xl { max-width: 72rem; }
+        .api-definition { margin: 0 0 1rem; padding: 0.75rem 1rem; border-left: 3px solid var(--neko-grad-from, #0443D3); background: rgba(148, 163, 184, 0.08); border-radius: 0 0.5rem 0.5rem 0; font-size: 0.9rem; line-height: 1.7; }
+        .dark .api-definition { background: rgba(148, 163, 184, 0.06); }
+        .api-definition p { margin: 0; color: #374151; }
+        .dark .api-definition p { color: #d1d5db; }
+        .api-definition strong { color: #6b7280; font-weight: 600; margin-right: 0.25rem; }
+        .dark .api-definition strong { color: #9ca3af; }
+        .api-definition code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85em; color: #111827; }
+        .dark .api-definition code { color: #f3f4f6; }
+        .api-members table { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1.5rem; font-size: 0.9rem; }
+        .api-members thead th { text-align: left; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; color: #6b7280; padding: 0.5rem 0.75rem; border-bottom: 1px solid rgba(148, 163, 184, 0.4); }
+        .dark .api-members thead th { color: #9ca3af; border-bottom-color: rgba(148, 163, 184, 0.25); }
+        .api-members tbody td { vertical-align: top; padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(148, 163, 184, 0.2); color: #374151; line-height: 1.6; }
+        .dark .api-members tbody td { color: #d1d5db; border-bottom-color: rgba(148, 163, 184, 0.15); }
+        .api-members tbody td:first-child { width: 38%; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85rem; }
+        .api-members tbody td:first-child a { color: var(--neko-grad-from, #0443D3); text-decoration: none; font-weight: 600; }
+        .api-members tbody td:first-child a:hover { text-decoration: underline; }
+        .api-members tbody tr:hover td { background: rgba(148, 163, 184, 0.06); }
+        .api-member { margin: 1.75rem 0; padding-top: 0.25rem; }
+        .api-member-params { display: grid; grid-template-columns: max-content 1fr; column-gap: 1rem; row-gap: 0.35rem; margin: 0.5rem 0 0; font-size: 0.9rem; }
+        .api-member-params dt { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 600; color: var(--neko-grad-from, #0443D3); }
+        .api-member-params dd { margin: 0; color: #374151; }
+        .dark .api-member-params dd { color: #d1d5db; }
+        .api-applies-to { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid rgba(148, 163, 184, 0.3); font-size: 0.9rem; color: #6b7280; }
+        .dark .api-applies-to { color: #9ca3af; border-top-color: rgba(148, 163, 184, 0.2); }
+        /* Changelog version header — two states.
+           In flow it is a rounded, blurred, inset card. When it sticks to the
+           top of the scroll pane (`.is-stuck`, toggled by an observer) the card
+           styling drops and a full-bleed background layer spans the whole pane. */
+        .neko-changelog-version { position: sticky; top: -1rem; z-index: 20; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; padding: 0.625rem 1rem; border-radius: 1rem; border: 1px solid rgba(229, 231, 235, 0.7); background-color: rgba(255, 255, 255, 0.92); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: border-radius 0.15s ease, border-color 0.15s ease; }
+        @media (min-width: 768px) { .neko-changelog-version { top: -2rem; } }
+        .dark .neko-changelog-version { border-color: rgba(255, 255, 255, 0.1); background-color: rgba(17, 24, 39, 0.92); }
+        @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) { .neko-changelog-version { background-color: rgba(255, 255, 255, 0.78); } .dark .neko-changelog-version { background-color: rgba(17, 24, 39, 0.78); } }
+        .neko-cl-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
+        .neko-cl-bleed { display: none; }
+        .neko-changelog-version.is-stuck { border-radius: 0; border-color: transparent; background-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+        /* When stuck the background is `position: fixed` so it spans the whole
+           viewport width — escaping the centred, max-width-capped content row —
+           while the header's pill/date stay aligned with the column. Its `top`
+           and `height` are set inline by the observer to match the pinned header
+           (extended a little upward, hidden behind the opaque navbar, so the top
+           edge is fully covered). */
+        .neko-changelog-version.is-stuck .neko-cl-bleed { display: block; position: fixed; left: 0; right: 0; z-index: -10; border-bottom: 1px solid rgba(203, 213, 225, 0.8); background-color: rgba(255, 255, 255, 0.97); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+        .dark .neko-changelog-version.is-stuck .neko-cl-bleed { border-bottom-color: rgba(255, 255, 255, 0.12); background-color: rgba(17, 24, 39, 0.97); }
+        @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) { .neko-changelog-version.is-stuck .neko-cl-bleed { background-color: rgba(255, 255, 255, 0.86); } .dark .neko-changelog-version.is-stuck .neko-cl-bleed { background-color: rgba(17, 24, 39, 0.86); } }
+    </style>
+    <style>
+        @media (prefers-reduced-motion: reduce) {
+            ::view-transition-group(*),
+            ::view-transition-old(*),
+            ::view-transition-new(*) { animation: none !important; }
+        }
+    </style>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+<script>
+    console.log("Neko is purring,\nCode flows like a gentle stream,\nSoft paws build the web.");
+</script>
+
+</head>
+<body class="h-full">
+  <main class="grid min-h-full place-items-center bg-white dark:bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
+    <div class="text-center">
+      <p class="text-base font-semibold text-indigo-600 dark:text-indigo-400">404</p>
+      <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl">Page not found</h1>
+      <p class="mt-6 text-base leading-7 text-gray-600 dark:text-gray-400">Sorry, we couldn’t find the page you’re looking for.</p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a href="/" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Go back home</a>
+        <a href="https://github.com/v0-dev/neko/issues" class="text-sm font-semibold text-gray-900 dark:text-gray-100">Contact support <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
